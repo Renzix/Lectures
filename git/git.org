@@ -1,4 +1,5 @@
 #+TITLE: Git Introduction
+#+AUTHOR: Daniel DeBruno
 #+OPTIONS: toc:nil num:nil
 #+REVEAL_INIT_OPTIONS: slideNumber:h/v
 #+REVEAL_HLEVEL: 1

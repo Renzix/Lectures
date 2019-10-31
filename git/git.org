@@ -2,7 +2,7 @@
 #+AUTHOR: Daniel DeBruno
 #+OPTIONS: toc:nil num:nil
 #+REVEAL_INIT_OPTIONS: slideNumber:h/v
-#+REVEAL_HLEVEL: 1
+#+REVEAL_HLEVEL: 10
 #+PROPERTIES: :exports code :eval no :session git
 
 * Intro

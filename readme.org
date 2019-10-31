@@ -1,0 +1,5 @@
+#+TITLE:   Lectures
+#+DATE:    October 31, 2019
+
+My rants about things or teaching stuff. Remember you can access html files
+through github pages ie https://renzix.github.io/Lectures/git/git.html

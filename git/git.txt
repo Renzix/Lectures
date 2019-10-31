@@ -38,6 +38,10 @@ Intro 2/2
   │ git --version
   └────
 
+  ┌────
+  │ git version 2.23.0
+  └────
+
 
 Installation
 ════════════

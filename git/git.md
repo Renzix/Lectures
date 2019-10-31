@@ -23,6 +23,8 @@ system below (in windows search for the program git for bash to get the prompt).
 
     git --version
 
+    git version 2.23.0
+
 
 # Installation
 

@@ -23,7 +23,7 @@ To get started we need to install git. Run this command to see if git is
 installed already. If not follow the instructions according to your operating
 system below (in windows search for the program git for bash to get the prompt).
 
-#+BEGIN_SRC sh :expotrs both
+#+BEGIN_SRC sh :exports both
 git --version
 #+END_SRC
 

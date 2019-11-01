@@ -109,7 +109,7 @@ Make sure to write a helpful message as others will see it!!!
 
 ## Congrats
 
-Congrats you have a repo with `main.cpp`. You don&rsquo;t have to `git add` main.cpp
+Congrats you have a repo with `readme.md`. You don&rsquo;t have to `git add` readme.md
 anymore when you make change to it. Only when you add another file do you have
 to run `git add`. You can git commit every time you change any files to save the
 changes in git.

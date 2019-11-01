@@ -145,10 +145,10 @@ Git Commit part 2
 Congrats
 ────────
 
-  Congrats you have a repo with `main.cpp'. You don’t have to `git add'
-  main.cpp anymore when you make change to it. Only when you add another
-  file do you have to run `git add'. You can git commit every time you
-  change any files to save the changes in git.
+  Congrats you have a repo with `readme.md'. You don’t have to `git add'
+  readme.md anymore when you make change to it. Only when you add
+  another file do you have to run `git add'. You can git commit every
+  time you change any files to save the changes in git.
 
 
 Recap

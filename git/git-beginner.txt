@@ -145,15 +145,17 @@ Git Commit part 2
 Congrats
 ────────
 
-  Congrats you have a repo with `readme.md'. You can git add and git
-  commit every time you change any files to save the changes in git.
+  Congrats you have a repo with `readme.md'. You don’t have to `git add'
+  readme.md anymore when you make change to it. Only when you add
+  another file do you have to run `git add'. You can git commit every
+  time you change any files to save the changes in git.
 
 
 Recap
 ─────
 
   • To make a repo `git init reponame'
-  • To add a file (stage) `git add filename'
+  • To add a file `git add filename'
   • To commit changes `git commit'
 
 
@@ -274,15 +276,6 @@ Recap
   • To get someone elses repo `git clone'
   • You can also use ssh keys instead of a login
   • You can tell git to stop tracking a file with `git rm filename'
-
-
-Learning
-════════
-
-  To learn more about git there is a ton of information about it online
-  for free. Also the man pages for git include a ton of information on
-  it offline. You cannot see the man pages on windows however you can
-  through WSL(windows subsystem for Linux).
 
 
 Closing

@@ -1,0 +1,95 @@
+#+TITLE: Git Advanced
+#+AUTHOR: Daniel DeBruno
+#+OPTIONS: toc:nil num:nil
+#+REVEAL_INIT_OPTIONS: slideNumber:h/v
+#+REVEAL_HLEVEL: 10
+#+PROPERTIES: :exports code :eval no :session git
+
+* Intro
+
+This is going to be about destructive git commands.
+
+* Refs
+
+In git there is a concept called Refs. This concept has been seen before and is
+the nice name of what branches are referenced too. When you run
+
+#+BEGIN_SRC sh
+git checkout master
+#+END_SRC
+
+You are actually checking out the latest commit of the master branch.
+
+** HEAD
+
+HEAD is fancy way of saying your current position in history. By default HEAD is
+the latest commit. You can actually specify 1 commit from head by using the
+reference HEAD~1.
+
+#+BEGIN_SRC sh
+git diff HEAD HEAD~1 # shows the diff of the last commit
+git checkout HEAD~4 # checks out the 4th last commit
+#+END_SRC
+
+** Checkout
+
+So all git checkout does is move the HEAD of the current branch.
+
+* Tag
+
+Now that we know we have a References that point to git hashes we can actually
+make our own. This is done by git tag. This makes versioning nice and easy
+because you have a point which you can go back to.
+
+#+BEGIN_SRC sh
+git tag -a v1.1 1a410efbd13591db07496601ebc7a059dd55cfe9 -m "My tag"
+# Now to go back to version v1.1
+git checkout v1.1 # Note this changes HEAD but not master
+#+END_SRC
+
+** Checking out tags
+
+Tags aren't branches so if you try to checkout a tag and add a commit you would
+need to create a new branch.
+
+** Remote with tags
+
+Remotes also don't automatically send tags so you have to add the tagname at the
+end of the push
+
+#+BEGIN_SRC sh
+git push origin v1.1 # push your v1.1 tag
+git push origin --tags # lists the tags in remote
+#+END_SRC
+
+** More Tag commands
+
+Some more useful tag commands...
+
+#+BEGIN_SRC sh
+git tag # lists all tags
+git tag -d v1.1 # deletes the tag v1.1
+#+END_SRC
+
+* Linear History
+
+Alot of projects force a linear history. When you merge a branch, the history
+from that merge is shown as a fork. Especially if your code has commit in
+between the merge you end up with a triangle structure.
+
+** Rebasing
+
+The way to change your history to prevent this is by rebasing. Rebasing allows
+you to move commit and squash them. To see a command line example you can look
+at this website https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+
+** Rebasing interactively
+
+This gives you fine grained control of the rebasing by choosing which commits
+are effected by what.
+
+* Closing
+
+The slides will be up on github [[https://github.com/Renzix/Lectures.git]]
+
+Any Questions? (made with emacs and org mode)

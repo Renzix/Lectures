@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Git Advanced</title>
+<meta name="author" content="Daniel DeBruno"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/theme/black.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Git Advanced</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-11-05 Tue 14:57</p>
+</section>
+
+<section>
+<section id="slide-orgedff104">
+<h2 id="orgedff104">Intro</h2>
+<p>
+This is going to be about destructive git commands.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org5ea6d17">
+<h2 id="org5ea6d17">Refs</h2>
+<p>
+In git there is a concept called Refs. This concept has been seen before and is
+the nice name of what branches are referenced too. When you run
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #FFCC80;">git</span> checkout master
+</pre>
+</div>
+
+<p>
+You are actually checking out the latest commit of the master branch
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6454e4e">
+<h3 id="org6454e4e">HEAD</h3>
+<p>
+HEAD is fancy way of saying your current position in history. By default HEAD is
+the latest commit. You can actually specify 1 commit from head by using the
+reference HEAD~1.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #FFCC80;">git</span> diff HEAD HEAD~1 <span style="color: #757575;"># </span><span style="color: #757575;">shows the diff of the last commit</span>
+<span style="color: #FFCC80;">git</span> checkout HEAD~4 <span style="color: #757575;"># </span><span style="color: #757575;">checks out the 4th last commit</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc21c226">
+<h3 id="orgc21c226">Checkout</h3>
+<p>
+So all git checkout does is move the HEAD of the current branch.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orga2bf8fd">
+<h2 id="orga2bf8fd">Tag</h2>
+<p>
+Now that we know we have a References that point to git hashes we can actually
+make our own. This is done by git tag. This makes versioning nice and easy
+because you have a point which you can go back to.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #FFCC80;">git</span> tag -a v1.1 1a410efbd13591db07496601ebc7a059dd55cfe9 -m <span style="color: #C5E1A5;">"My tag"</span>
+<span style="color: #757575;"># </span><span style="color: #757575;">Now to go back to version v1.1</span>
+<span style="color: #FFCC80;">git</span> checkout v1.1 <span style="color: #757575;"># </span><span style="color: #757575;">Note this changes HEAD but not master</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb72bfc7">
+<h3 id="orgb72bfc7">Checking out tags</h3>
+<p>
+Tags aren&rsquo;t branches so if you try to checkout a tag and add a commit you would
+need to create a new branch.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf2bf7c1">
+<h3 id="orgf2bf7c1">Remote with tags</h3>
+<p>
+Remotes also don&rsquo;t automatically send tags so you have to add the tagname at the
+end of the push
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #FFCC80;">git</span> push origin v1.1 <span style="color: #757575;"># </span><span style="color: #757575;">push your v1.1 tag</span>
+<span style="color: #FFCC80;">git</span> push origin --tags <span style="color: #757575;"># </span><span style="color: #757575;">lists the tags in remote</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org9d5dc74">
+<h3 id="org9d5dc74">More Tag commands</h3>
+<p>
+Some more useful tag commands&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #FFCC80;">git</span> tag <span style="color: #757575;"># </span><span style="color: #757575;">lists all tags</span>
+<span style="color: #FFCC80;">git</span> tag -d v1.1 <span style="color: #757575;"># </span><span style="color: #757575;">deletes the tag v1.1</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orge4aac79">
+<h2 id="orge4aac79">Rebasing</h2>
+<p>
+Rebasing
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org334dbc5">
+<h2 id="org334dbc5">Next thing to learn</h2>
+<p>
+After this will be destructive git commands which change your history not just
+add to it. Also cherry picking, and bisecting.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org4a93213">
+<h2 id="org4a93213">Closing</h2>
+<p>
+The slides will be up on github <a href="https://github.com/Renzix/Lectures.git">https://github.com/Renzix/Lectures.git</a>
+</p>
+
+<p>
+Any Questions? (made with emacs and org mode)
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

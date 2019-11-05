@@ -26,19 +26,19 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Git Introduction</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-10-31 Thu 23:46</p>
+<h1 class="title">Git Introduction</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-11-05 Tue 00:55</p>
 </section>
 
 <section>
-<section id="slide-org1715b17">
-<h2 id="org1715b17">Intro</h2>
-<div class="outline-text-2" id="text-org1715b17">
+<section id="slide-orgbe13c38">
+<h2 id="orgbe13c38">Intro</h2>
+<div class="outline-text-2" id="text-orgbe13c38">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org6242e38">
-<h3 id="org6242e38">Intro 1/2</h3>
+<section id="slide-org4afc864">
+<h3 id="org4afc864">Intro 1/2</h3>
 <p>
 Git is something called a DVCS which stands for decentralized version control
 system. At a simple level it allows you to store file versions with it. The
@@ -50,8 +50,8 @@ control systems are SVN, CVS, Mercurial and TFS.
 </section>
 </section>
 <section>
-<section id="slide-org8cc15a7">
-<h3 id="org8cc15a7">Intro 2/2</h3>
+<section id="slide-org38e1591">
+<h3 id="org38e1591">Intro 2/2</h3>
 <p>
 Git has the idea of a remote place to store your git repos. One of these remote
 places is github. While github uses git, git does not use github.
@@ -70,21 +70,21 @@ system below (in windows search for the program git for bash to get the prompt).
 </div>
 
 <pre class="example">
-git version 2.23.0
+git version 2.24.0
 </pre>
 
 </section>
 </section>
 <section>
-<section id="slide-org54e4aae">
-<h2 id="org54e4aae">Installation</h2>
-<div class="outline-text-2" id="text-org54e4aae">
+<section id="slide-org10b710c">
+<h2 id="org10b710c">Installation</h2>
+<div class="outline-text-2" id="text-org10b710c">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org25d8e07">
-<h3 id="org25d8e07">Windows</h3>
+<section id="slide-org8dafd9b">
+<h3 id="org8dafd9b">Windows</h3>
 <p>
 go to <a href="https://github.com/git-for-windows/git/releases/tag/v2.23.0.windows.1">https://github.com/git-for-windows/git/releases/tag/v2.23.0.windows.1</a> and
 scroll down to where it says Assets. Click on the dropdown and download the 64
@@ -94,8 +94,8 @@ bit exe which says Git-2.23.0-64-bit.exe.
 </section>
 </section>
 <section>
-<section id="slide-org0630d63">
-<h3 id="org0630d63">macOS</h3>
+<section id="slide-org6993a92">
+<h3 id="org6993a92">macOS</h3>
 <p>
 for macOS you have 2 options. You can either install xcode and it will
 automatically install it or install it directly from git-scm.
@@ -103,8 +103,8 @@ automatically install it or install it directly from git-scm.
 </section>
 </section>
 <section>
-<section id="slide-org11ce12f">
-<h4 id="org11ce12f">Xcode</h4>
+<section id="slide-orgea9136d">
+<h4 id="orgea9136d">Xcode</h4>
 <p>
 Install xcode via the app store. To test it run
 </p>
@@ -117,8 +117,8 @@ Install xcode via the app store. To test it run
 </section>
 </section>
 <section>
-<section id="slide-orgd8daa0d">
-<h4 id="orgd8daa0d">git-scm</h4>
+<section id="slide-orgc91b129">
+<h4 id="orgc91b129">git-scm</h4>
 <p>
 go to <a href="https://git-scm.com/download/mac">https://git-scm.com/download/mac</a> and install it.
 </p>
@@ -126,8 +126,8 @@ go to <a href="https://git-scm.com/download/mac">https://git-scm.com/download/ma
 </section>
 </section>
 <section>
-<section id="slide-orgc654264">
-<h3 id="orgc654264">Linux</h3>
+<section id="slide-orgddf5511">
+<h3 id="orgddf5511">Linux</h3>
 <p>
 This depends on your distro. Nearly all distros have git in their repository so
 you can just use your package manager.
@@ -142,15 +142,15 @@ you can just use your package manager.
 </section>
 </section>
 <section>
-<section id="slide-orgda53f9d">
-<h2 id="orgda53f9d">Creating the Repo</h2>
-<div class="outline-text-2" id="text-orgda53f9d">
+<section id="slide-org1aff2b2">
+<h2 id="org1aff2b2">Creating the Repo</h2>
+<div class="outline-text-2" id="text-org1aff2b2">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgf50a861">
-<h3 id="orgf50a861">Git Init</h3>
+<section id="slide-org1dedacf">
+<h3 id="org1dedacf">Git Init</h3>
 <p>
 To get started run the command
 </p>
@@ -170,8 +170,8 @@ readme.md. You can put in <code>Hello World</code> in the file as plain text.
 </section>
 </section>
 <section>
-<section id="slide-orga549851">
-<h3 id="orga549851">Git Add</h3>
+<section id="slide-org4a5ccf4">
+<h3 id="org4a5ccf4">Git Add</h3>
 <p>
 After you make this file you can &ldquo;add&rdquo; it to your repository by running the
 command <code>git add</code>. If you had multiple files then you would run <code>git add
@@ -187,8 +187,8 @@ filename</code> on each file.
 </section>
 </section>
 <section>
-<section id="slide-orgbb34b82">
-<h3 id="orgbb34b82">Git Commit part 1</h3>
+<section id="slide-org946d716">
+<h3 id="org946d716">Git Commit part 1</h3>
 <p>
 <code>git add</code> doesn&rsquo;t actually tell git to save the current version of the file.
 What it does is tell git that this files exists and you want to track it
@@ -205,8 +205,8 @@ want to commit then run <code>git commit</code>.
 </section>
 </section>
 <section>
-<section id="slide-org4ece765">
-<h3 id="org4ece765">Git Commit part 2</h3>
+<section id="slide-org97a8008">
+<h3 id="org97a8008">Git Commit part 2</h3>
 <p>
 It will then pop up a tui text editor based on what you choose. Nano is probably
 the default as it is the most simple so you can just write you commit message
@@ -220,23 +220,21 @@ Make sure to write a helpful message as others will see it!!!
 </section>
 </section>
 <section>
-<section id="slide-org63c2acd">
-<h3 id="org63c2acd">Congrats</h3>
+<section id="slide-orgbc39aba">
+<h3 id="orgbc39aba">Congrats</h3>
 <p>
-Congrats you have a repo with <code>readme.md</code>. You don&rsquo;t have to <code>git add</code> readme.md
-anymore when you make change to it. Only when you add another file do you have
-to run <code>git add</code>. You can git commit every time you change any files to save the
-changes in git.
+Congrats you have a repo with <code>readme.md</code>. You can git add and git commit every
+time you change any files to save the changes in git.
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-org63d8298">
-<h3 id="org63d8298">Recap</h3>
+<section id="slide-orgde5fcf5">
+<h3 id="orgde5fcf5">Recap</h3>
 <ul>
 <li>To make a repo <code>git init reponame</code></li>
-<li>To add a file <code>git add filename</code></li>
+<li>To add a file (stage) <code>git add filename</code></li>
 <li>To commit changes <code>git commit</code></li>
 
 </ul>
@@ -244,15 +242,15 @@ changes in git.
 </section>
 </section>
 <section>
-<section id="slide-org80e2ab5">
-<h2 id="org80e2ab5">Using a remote</h2>
-<div class="outline-text-2" id="text-org80e2ab5">
+<section id="slide-orgf8e45c9">
+<h2 id="orgf8e45c9">Using a remote</h2>
+<div class="outline-text-2" id="text-orgf8e45c9">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org3e3684f">
-<h3 id="org3e3684f">Creating your account</h3>
+<section id="slide-org5a99b5a">
+<h3 id="org5a99b5a">Creating your account</h3>
 <p>
 Now you can setup github as a remote repository for your code. Keep in mind
 there are alternatives the big two being bitbucket and gitlab.
@@ -261,8 +259,8 @@ there are alternatives the big two being bitbucket and gitlab.
 </section>
 </section>
 <section>
-<section id="slide-org6243220">
-<h3 id="org6243220">Create a repo</h3>
+<section id="slide-org659c1ce">
+<h3 id="org659c1ce">Create a repo</h3>
 <p>
 Once you create a account you have to do 2 things. First you create a empty
 repository on the website. <code>DO NOT ADD A LICNESE OR README YET</code> as it will mess
@@ -272,8 +270,8 @@ up the history of the remote.
 </section>
 </section>
 <section>
-<section id="slide-orgfb90ee1">
-<h3 id="orgfb90ee1">Adding the remote</h3>
+<section id="slide-org8094df8">
+<h3 id="org8094df8">Adding the remote</h3>
 <p>
 You can then tell your git repo (on your machine) where the remote place to
 store it is. Change the url below to have your username instead of Renzix and
@@ -289,8 +287,8 @@ change test to the name of your repo you setup.
 </section>
 </section>
 <section>
-<section id="slide-org8f1e36d">
-<h3 id="org8f1e36d">First push</h3>
+<section id="slide-orgcfc31d0">
+<h3 id="orgcfc31d0">First push</h3>
 <p>
 Now that you told it WHERE its going you can tell it to send the code.
 </p>
@@ -308,8 +306,8 @@ To send the code you just and type in your username/password for github.
 </section>
 </section>
 <section>
-<section id="slide-orgf7abd26">
-<h3 id="orgf7abd26">Congrats</h3>
+<section id="slide-orgbd0e45c">
+<h3 id="orgbd0e45c">Congrats</h3>
 <p>
 If you refresh the page it will now show you whatever you typed inside
 readme.md!!!
@@ -323,8 +321,8 @@ other options.
 </section>
 </section>
 <section>
-<section id="slide-orge06522e">
-<h3 id="orge06522e">Recap</h3>
+<section id="slide-org151741d">
+<h3 id="org151741d">Recap</h3>
 <ul>
 <li>To setup
 <ul>
@@ -338,15 +336,15 @@ other options.
 </section>
 </section>
 <section>
-<section id="slide-orgedfd204">
-<h2 id="orgedfd204">Misc</h2>
-<div class="outline-text-2" id="text-orgedfd204">
+<section id="slide-org7e86f6b">
+<h2 id="org7e86f6b">Misc</h2>
+<div class="outline-text-2" id="text-org7e86f6b">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgbd78fd4">
-<h3 id="orgbd78fd4">Pulling changes</h3>
+<section id="slide-orgb0f57d0">
+<h3 id="orgb0f57d0">Pulling changes</h3>
 <p>
 To pull down changes from a repo you can run the comand
 </p>
@@ -359,8 +357,8 @@ To pull down changes from a repo you can run the comand
 </section>
 </section>
 <section>
-<section id="slide-org5a94471">
-<h3 id="org5a94471">Cloning repos</h3>
+<section id="slide-org1e2c35b">
+<h3 id="org1e2c35b">Cloning repos</h3>
 <p>
 To get a local copy of a repository online you can run. Note that the remote
 normally has a link you can copy when you visit the repo online.
@@ -375,8 +373,8 @@ normally has a link you can copy when you visit the repo online.
 </section>
 </section>
 <section>
-<section id="slide-org125a215">
-<h3 id="org125a215">Using ssh</h3>
+<section id="slide-org1bac5e9">
+<h3 id="org1bac5e9">Using ssh</h3>
 <p>
 Passwords are not a very good way to securely login. The better way is via ssh
 keys. In order to do this you have to add a ssh key to your account then when
@@ -392,8 +390,8 @@ you set the remote you can give it the ssh url.
 </section>
 </section>
 <section>
-<section id="slide-orge1f7cf5">
-<h3 id="orge1f7cf5">Removing files</h3>
+<section id="slide-orgb62d4b1">
+<h3 id="orgb62d4b1">Removing files</h3>
 <p>
 If you would like to stop tracking a file through git you can run the command
 </p>
@@ -403,23 +401,75 @@ If you would like to stop tracking a file through git you can run the command
 <pre  class="src src-sh"><span style="color: #ECCC87;">git</span> <span style="color: #ECCC87;">rm</span> filename
 </pre>
 </div>
+
 </section>
 </section>
 <section>
-<section id="slide-org9f00459">
-<h3 id="org9f00459">Recap</h3>
+<section id="slide-org973cc5c">
+<h3 id="org973cc5c">git status</h3>
+<p>
+One useful command to see what you have or have not commited yet is git status.
+This shows you which files were modified, commit, untracked and more.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org8b11590">
+<h3 id="org8b11590">Flags</h3>
+<p>
+Every git command has associated flags with them. These flags change what that
+command can do.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org38abb46">
+<h3 id="org38abb46">git commit -m</h3>
+<p>
+One example is git commit -m which allows you to specify a message from the
+commandline instead of going into the editor to write said message. Generally
+its better to go into the editor because it shows you what files were changed.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> commit -m <span style="color: #A2BF8A;">"My first commit!!!"</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org32c2178">
+<h3 id="org32c2178">Recap</h3>
 <ul>
 <li>To pull down changes from the remote <code>git pull</code></li>
 <li>To get someone elses repo <code>git clone</code></li>
 <li>You can also use ssh keys instead of a login</li>
 <li>You can tell git to stop tracking a file with <code>git rm filename</code></li>
+<li>git status lets you see which files are being tracked and how</li>
+<li>Every git options has optional flags associated to it</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org5c06d92">
-<h2 id="org5c06d92">Closing</h2>
+<section id="slide-org3f08af4">
+<h2 id="org3f08af4">Learning</h2>
+<p>
+To learn more about git there is a ton of information about it online for free.
+Also the man pages for git include a ton of information on it offline. You
+cannot see the man pages on windows however you can through WSL(windows
+subsystem for Linux).
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org3f84584">
+<h2 id="org3f84584">Closing</h2>
 <p>
 The slides will be up on github <a href="https://github.com/Renzix/Lectures.git">https://github.com/Renzix/Lectures.git</a>
 </p>

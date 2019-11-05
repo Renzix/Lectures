@@ -23,7 +23,7 @@ system below (in windows search for the program git for bash to get the prompt).
 
     git --version
 
-    git version 2.23.0
+    git version 2.24.0
 
 
 # Installation
@@ -109,16 +109,14 @@ Make sure to write a helpful message as others will see it!!!
 
 ## Congrats
 
-Congrats you have a repo with `readme.md`. You don&rsquo;t have to `git add` readme.md
-anymore when you make change to it. Only when you add another file do you have
-to run `git add`. You can git commit every time you change any files to save the
-changes in git.
+Congrats you have a repo with `readme.md`. You can git add and git commit every
+time you change any files to save the changes in git.
 
 
 ## Recap
 
 -   To make a repo `git init reponame`
--   To add a file `git add filename`
+-   To add a file (stage) `git add filename`
 -   To commit changes `git commit`
 
 
@@ -207,12 +205,43 @@ If you would like to stop tracking a file through git you can run the command
     git rm filename
 
 
+## git status
+
+One useful command to see what you have or have not commited yet is git status.
+This shows you which files were modified, commit, untracked and more.
+
+
+## Flags
+
+Every git command has associated flags with them. These flags change what that
+command can do.
+
+
+## git commit -m
+
+One example is git commit -m which allows you to specify a message from the
+commandline instead of going into the editor to write said message. Generally
+its better to go into the editor because it shows you what files were changed.
+
+    git commit -m "My first commit!!!"
+
+
 ## Recap
 
 -   To pull down changes from the remote `git pull`
 -   To get someone elses repo `git clone`
 -   You can also use ssh keys instead of a login
 -   You can tell git to stop tracking a file with `git rm filename`
+-   git status lets you see which files are being tracked and how
+-   Every git options has optional flags associated to it
+
+
+# Learning
+
+To learn more about git there is a ton of information about it online for free.
+Also the man pages for git include a ton of information on it offline. You
+cannot see the man pages on windows however you can through WSL(windows
+subsystem for Linux).
 
 
 # Closing

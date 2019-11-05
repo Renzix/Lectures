@@ -1,0 +1,260 @@
+                           ━━━━━━━━━━━━━━━━━━
+                            GIT INTERMEDIATE
+
+                             Daniel DeBruno
+                           ━━━━━━━━━━━━━━━━━━
+
+
+
+
+
+Intro
+═════
+
+  Now that we can make a Basic git repo we can learn about a couple more
+  commands and how they function. Everything that was done before works
+  perfectly if you are a single user however git projects are meant for
+  multiple users.
+
+
+Branches
+────────
+
+  Git has this idea called branching. What this basically means is that
+  you can have different versions of your project can switch between
+  them easily.
+
+
+git branch
+╌╌╌╌╌╌╌╌╌╌
+
+  The way to create, delete or list branches is through git branch. Note
+  that this creates a branch at the exact commit you created it on.
+
+  ┌────
+  │ git branch # lists the current branches
+  │ git branch NewFeature # creates a new branch called NewFeature
+  │ git branch -d NewFeature # Deletes the NewFeature branch
+  └────
+
+
+git checkout
+╌╌╌╌╌╌╌╌╌╌╌╌
+
+  Now that we can create branches how about we use them. git checkout
+  “checks out” that branch so we are inside of it. Note that any commits
+  done on that branch will NOT be on the original branch.
+
+  ┌────
+  │ git checkout NewFeature # now we are in the NewFeature branch
+  │ echo "This is the NewFeature branch" > readme.md
+  │ git add readme.md
+  │ git commit -m "Did some stuff to the readme.md"
+  │ git checkout master # by convention the original branch is called master
+  └────
+
+
+Merging
+╌╌╌╌╌╌╌
+
+  So when we have a second branch and we want to merge it with our
+  current branch we can just git merge.
+
+  ┌────
+  │ git checkout master # note you merge from NewFeature -> Master here
+  │ git merge NewFeature # now the master branch has a readme which says NewFeature
+  └────
+
+
+Remote Branch
+╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  Now that we understand branches we can learn that the remote (ie
+  github) is actually just another branch. It didnt show in git branch
+  before because it hides nonlocal branches by default. To show it you
+  can
+
+  ┌────
+  │ git branch -a
+  └────
+
+
+git pull
+╌╌╌╌╌╌╌╌
+
+  Now that we know remotes (ie github) are just branches we can find out
+  that git pull just performs a git merge on the remote branch.
+
+
+Resolving merge conflicts 1
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  So git merge will try to be smart and resolve all conflicts
+  automatically but sadly it cannot if both commits change the same
+  exact line. So git will leave something like this.
+
+  ┌────
+  │ <<<<<<< HEAD
+  │ open an issue
+  │ =======
+  │ ask your question in IRC.
+  │ >>>>>>> branch-a
+  └────
+
+
+Resolving merge conflicts 2
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  If you notice the top part is one commit and the bottom part is the
+  other commit. You can just delete one of them then git add/git commit.
+
+
+Remote features
+───────────────
+
+  There is no set remote features however they normally have the same
+  concept.
+
+
+Issues
+╌╌╌╌╌╌
+
+  You can open a issue with a github repository. These issues can have
+  multiple people talking about them and can have labels.
+
+
+Forking
+╌╌╌╌╌╌╌
+
+  Github and other remotes allow you to fork a repository with a click
+  of a button. This is very important feature for Pull Requests which is
+  on the next slide.
+
+
+Pull Requests
+╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  A pull request is a commit(or multiple) you want someone to add to
+  their repository. In order to submit a PR (pull request) you have to
+  fork their repo then push to your forked repo. Once your code has been
+  commited and pushed you can go on the original repository (not the one
+  you forked) and submit it. Note it will show the difference between
+  your code and theirs and they may ask for things before accepting.
+
+
+Multiple Remotes
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  By convention the origin remote is the repository that was well the
+  original.
+
+  To make it easy on to pull down changes from the original you can
+  create a second remote which you push before the pull request. This
+  makes it alot easier to stay up to date with the origin.
+
+
+Setting up a second remote
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  To setup a second remote its the same as setting up the first one but
+  with different names. The only difference is when you push/pull you
+  specify the name of it. You can set this up to push to a default
+  remote too.
+
+  ┌────
+  │ git remote add MyRepo https://github.com/Renzix/Lectures.git
+  │ git push MyRepo
+  └────
+
+
+Stashing
+────────
+
+  Git has this thing called stashing which is extremely useful. When you
+  are working on something but don’t want to officially commit it you
+  can stash the change with `git stash'.
+
+
+git stash commands
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  There are a bunch of subcommands to interact with stashes
+
+  ┌────
+  │ git stash # Puts your unsaved changes in a stash
+  │ git stash list # lists all your stash
+  │ git stash drop 0 # deletes or drops the stash named...
+  │ git stash apply # Applies the changes that you stashed (like merge)
+  │ git stash pop # same as apply but also deletes the stash
+  │ git stash clear # clears all known stashes
+  └────
+
+
+Misc
+────
+
+  So git has a couple other nice commands to see and one premise which
+  makes these command’s usable.
+
+
+Logging
+╌╌╌╌╌╌╌
+
+  We can actually list changes with the repository git the command git
+  log. Note that it opens the unix program less so we can press q to
+  quit.
+
+  ┌────
+  │ git log # kinda noisy with author/date/other stuff
+  │ git log --oneline # single line with commit hash and message
+  └────
+
+
+Blaming
+╌╌╌╌╌╌╌
+
+  Another way to see what file changed is with git blame. IDE’s and
+  editors normally have this intergrated however you can run git blame
+  on a file and see who changed it and at which commit.
+
+  ┌────
+  │ git blame readme.md
+  └────
+
+
+Commit hashes
+╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  So every commit has a unique identifier called a hash as shown by git
+  log and git blame. Remember we learned about git checkout to goto
+  another branch? Well git checkout also allows you to checkout specific
+  commit hashes.
+
+  ┌────
+  │ git checkout 8468208 # goes back to this specifc commit
+  │ git checkout master # goes back to latest commit on branch master
+  └────
+
+
+git diff
+╌╌╌╌╌╌╌╌
+
+  Another thing you can use commit hashes for is git diff. This command
+  shows a unix style diff or difference between two files or in this
+  case two git branches/commits. Again you can run it on commit hashes
+  or branches
+
+  ┌────
+  │ git diff master myFeature # difference between 2 branches
+  │ git diff 8468208 master # difference between master and a specific commit
+  │ git diff 8468208 b2430a4 # difference between 2 git commits
+  └────
+
+
+Closing
+═══════
+
+  The slides will be up on github
+  <https://github.com/Renzix/Lectures.git>
+
+  Any Questions? (made with emacs and org mode)

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Git Intermediate</title>
+<meta name="author" content="Daniel DeBruno"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/theme/black.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Git Intermediate</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-11-05 Tue 00:27</p>
+</section>
+
+<section>
+<section id="slide-org433b234">
+<h2 id="org433b234">Intro</h2>
+<p>
+Now that we can make a Basic git repo we can learn about a couple more commands
+and how they function. Everything that was done before works perfectly if you
+are a single user however git projects are meant for multiple users.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orge14eabb">
+<h3 id="orge14eabb">Branches</h3>
+<p>
+Git has this idea called branching. What this basically means is that you can
+have different versions of your project can switch between them easily.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org09bb048">
+<h4 id="org09bb048">git branch</h4>
+<p>
+The way to create, delete or list branches is through git branch. Note that this
+creates a branch at the exact commit you created it on.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> branch <span style="color: #747474;"># </span><span style="color: #747474;">lists the current branches</span>
+<span style="color: #ECCC87;">git</span> branch NewFeature <span style="color: #747474;"># </span><span style="color: #747474;">creates a new branch called NewFeature</span>
+<span style="color: #ECCC87;">git</span> branch -d NewFeature <span style="color: #747474;"># </span><span style="color: #747474;">Deletes the NewFeature branch</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd66ccb6">
+<h4 id="orgd66ccb6">git checkout</h4>
+<p>
+Now that we can create branches how about we use them. git checkout &ldquo;checks out&rdquo;
+that branch so we are inside of it. Note that any commits done on that branch
+will NOT be on the original branch.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> checkout NewFeature <span style="color: #747474;"># </span><span style="color: #747474;">now we are in the NewFeature branch</span>
+<span style="color: #ECCC87;">echo</span> <span style="color: #A2BF8A;">"This is the NewFeature branch"</span> &gt; readme.md
+<span style="color: #ECCC87;">git</span> add readme.md
+<span style="color: #ECCC87;">git</span> commit -m <span style="color: #A2BF8A;">"Did some stuff to the readme.md"</span>
+<span style="color: #ECCC87;">git</span> checkout master <span style="color: #747474;"># </span><span style="color: #747474;">by convention the original branch is called master</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org23cecaa">
+<h4 id="org23cecaa">Merging</h4>
+<p>
+So when we have a second branch and we want to merge it with our current branch
+we can just git merge.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> checkout master <span style="color: #747474;"># </span><span style="color: #747474;">note you merge from NewFeature -&gt; Master here</span>
+<span style="color: #ECCC87;">git</span> merge NewFeature <span style="color: #747474;"># </span><span style="color: #747474;">now the master branch has a readme which says NewFeature</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org0a4de97">
+<h4 id="org0a4de97">Remote Branch</h4>
+<p>
+Now that we understand branches we can learn that the remote (ie github) is
+actually just another branch. It didnt show in git branch before because it
+hides nonlocal branches by default. To show it you can
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> branch -a
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org574d68f">
+<h4 id="org574d68f">git pull</h4>
+<p>
+Now that we know remotes (ie github) are just branches we can find out that git
+pull just performs a git merge on the remote branch.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org50fea8a">
+<h4 id="org50fea8a">Resolving merge conflicts 1</h4>
+<p>
+So git merge will try to be smart and resolve all conflicts automatically but
+sadly it cannot if both commits change the same exact line. So git will leave
+something like this.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+open an issue
+=======
+ask your question<span style="color: #80A0C2;"> in</span> IRC.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-a
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org0a08ba8">
+<h4 id="org0a08ba8">Resolving merge conflicts 2</h4>
+<p>
+If you notice the top part is one commit and the bottom part is the other
+commit. You can just delete one of them then git add/git commit.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgecfe057">
+<h3 id="orgecfe057">Remote features</h3>
+<p>
+There is no set remote features however they normally have the same concept.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org0ec83b1">
+<h4 id="org0ec83b1">Issues</h4>
+<p>
+You can open a issue with a github repository. These issues can have multiple
+people talking about them and can have labels.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org530b3d8">
+<h4 id="org530b3d8">Forking</h4>
+<p>
+Github and other remotes allow you to fork a repository with a click of a
+button. This is very important feature for Pull Requests which is on the next
+slide.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org4c0310d">
+<h4 id="org4c0310d">Pull Requests</h4>
+<p>
+A pull request is a commit(or multiple) you want someone to add to their
+repository. In order to submit a PR (pull request) you have to fork their repo
+then push to your forked repo. Once your code has been commited and pushed you
+can go on the original repository (not the one you forked) and submit it. Note
+it will show the difference between your code and theirs and they may ask for
+things before accepting.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdd17568">
+<h4 id="orgdd17568">Multiple Remotes</h4>
+<p>
+By convention the origin remote is the repository that was well the original.
+</p>
+
+<p>
+To make it easy on to pull down changes from the original you can create a
+second remote which you push before the pull request. This makes it alot easier
+to stay up to date with the origin.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org8a3ffcf">
+<h4 id="org8a3ffcf">Setting up a second remote</h4>
+<p>
+To setup a second remote its the same as setting up the first one but with
+different names. The only difference is when you push/pull you specify the name
+of it. You can set this up to push to a default remote too.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> remote add MyRepo https://github.com/Renzix/Lectures.git
+<span style="color: #ECCC87;">git</span> push MyRepo
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc533651">
+<h3 id="orgc533651">Stashing</h3>
+<p>
+Git has this thing called stashing which is extremely useful. When you are
+working on something but don&rsquo;t want to officially commit it you can stash the
+change with <code>git stash</code>.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf0b60e0">
+<h4 id="orgf0b60e0">git stash commands</h4>
+<p>
+There are a bunch of subcommands to interact with stashes
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> stash <span style="color: #747474;"># </span><span style="color: #747474;">Puts your unsaved changes in a stash</span>
+<span style="color: #ECCC87;">git</span> stash list <span style="color: #747474;"># </span><span style="color: #747474;">lists all your stash</span>
+<span style="color: #ECCC87;">git</span> stash drop <span style="color: #B58DAE; font-weight: bold;">0</span> <span style="color: #747474;"># </span><span style="color: #747474;">deletes or drops the stash named...</span>
+<span style="color: #ECCC87;">git</span> stash apply <span style="color: #747474;"># </span><span style="color: #747474;">Applies the changes that you stashed (like merge)</span>
+<span style="color: #ECCC87;">git</span> stash pop <span style="color: #747474;"># </span><span style="color: #747474;">same as apply but also deletes the stash</span>
+<span style="color: #ECCC87;">git</span> stash clear <span style="color: #747474;"># </span><span style="color: #747474;">clears all known stashes</span>
+</pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org9d3d5f9">
+<h3 id="org9d3d5f9">Misc</h3>
+<p>
+So git has a couple other nice commands to see and one premise which makes these
+command&rsquo;s usable.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdac8923">
+<h4 id="orgdac8923">Logging</h4>
+<p>
+We can actually list changes with the repository git the command git log. Note
+that it opens the unix program less so we can press q to quit.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> log <span style="color: #747474;"># </span><span style="color: #747474;">kinda noisy with author/date/other stuff</span>
+<span style="color: #ECCC87;">git</span> log --oneline <span style="color: #747474;"># </span><span style="color: #747474;">single line with commit hash and message</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb80c786">
+<h4 id="orgb80c786">Blaming</h4>
+<p>
+Another way to see what file changed is with git blame. IDE&rsquo;s and editors
+normally have this intergrated however you can run git blame on a file and see
+who changed it and at which commit.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> blame readme.md
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb256322">
+<h4 id="orgb256322">Commit hashes</h4>
+<p>
+So every commit has a unique identifier called a hash as shown by git log and
+git blame. Remember we learned about git checkout to goto another branch? Well
+git checkout also allows you to checkout specific commit hashes.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> checkout <span style="color: #B58DAE; font-weight: bold;">8468208</span> <span style="color: #747474;"># </span><span style="color: #747474;">goes back to this specifc commit</span>
+<span style="color: #ECCC87;">git</span> checkout master <span style="color: #747474;"># </span><span style="color: #747474;">goes back to latest commit on branch master</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdcf0e75">
+<h4 id="orgdcf0e75">git diff</h4>
+<p>
+Another thing you can use commit hashes for is git diff. This command shows a
+unix style diff or difference between two files or in this case two git
+branches/commits. Again you can run it on commit hashes or branches
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> diff master myFeature <span style="color: #747474;"># </span><span style="color: #747474;">difference between 2 branches</span>
+<span style="color: #ECCC87;">git</span> diff <span style="color: #B58DAE; font-weight: bold;">8468208</span> master <span style="color: #747474;"># </span><span style="color: #747474;">difference between master and a specific commit</span>
+<span style="color: #ECCC87;">git</span> diff <span style="color: #B58DAE; font-weight: bold;">8468208</span> b2430a4 <span style="color: #747474;"># </span><span style="color: #747474;">difference between 2 </span><span style="color: #747474;">git</span><span style="color: #747474;"> commits</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orge177b1a">
+<h2 id="orge177b1a">Closing</h2>
+<p>
+The slides will be up on github <a href="https://github.com/Renzix/Lectures.git">https://github.com/Renzix/Lectures.git</a>
+</p>
+
+<p>
+Any Questions? (made with emacs and org mode)
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

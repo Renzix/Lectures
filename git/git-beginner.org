@@ -200,11 +200,34 @@ If you would like to stop tracking a file through git you can run the command
 #+BEGIN_SRC sh
 git rm filename
 #+END_SRC
+
+** git status
+
+One useful command to see what you have or have not commited yet is git status.
+This shows you which files were modified, commit, untracked and more.
+
+** Flags
+
+Every git command has associated flags with them. These flags change what that
+command can do.
+
+** git commit -m
+
+One example is git commit -m which allows you to specify a message from the
+commandline instead of going into the editor to write said message. Generally
+its better to go into the editor because it shows you what files were changed.
+
+#+BEGIN_SRC sh
+git commit -m "My first commit!!!"
+#+END_SRC
+
 ** Recap
 - To pull down changes from the remote =git pull=
 - To get someone elses repo =git clone=
 - You can also use ssh keys instead of a login
 - You can tell git to stop tracking a file with =git rm filename=
+- git status lets you see which files are being tracked and how
+- Every git options has optional flags associated to it
 * Learning
 
 To learn more about git there is a ton of information about it online for free.

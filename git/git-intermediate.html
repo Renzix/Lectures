@@ -26,12 +26,12 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Git Intermediate</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-11-05 Tue 00:49</p>
+<h1 class="title">Git Intermediate</h1><h2 class="author">Daniel DeBruno</h2><p class="date">Created: 2019-11-05 Tue 01:05</p>
 </section>
 
 <section>
-<section id="slide-org31ade1f">
-<h2 id="org31ade1f">Intro</h2>
+<section id="slide-orgc79f16f">
+<h2 id="orgc79f16f">Intro</h2>
 <p>
 Now that we can make a Basic git repo we can learn about a couple more commands
 and how they function. Everything that was done before works perfectly if you
@@ -41,8 +41,8 @@ are a single user however git projects are meant for multiple users.
 </section>
 </section>
 <section>
-<section id="slide-org582858d">
-<h2 id="org582858d">Branches</h2>
+<section id="slide-org0a2d69b">
+<h2 id="org0a2d69b">Branches</h2>
 <p>
 Git has this idea called branching. What this basically means is that you can
 have different versions of your project can switch between them easily.
@@ -51,8 +51,8 @@ have different versions of your project can switch between them easily.
 </section>
 </section>
 <section>
-<section id="slide-org43d52fb">
-<h3 id="org43d52fb">git branch</h3>
+<section id="slide-org245e038">
+<h3 id="org245e038">git branch</h3>
 <p>
 The way to create, delete or list branches is through git branch. Note that this
 creates a branch at the exact commit you created it on.
@@ -69,8 +69,8 @@ creates a branch at the exact commit you created it on.
 </section>
 </section>
 <section>
-<section id="slide-org0739552">
-<h3 id="org0739552">git checkout</h3>
+<section id="slide-org0a5a8cd">
+<h3 id="org0a5a8cd">git checkout</h3>
 <p>
 Now that we can create branches how about we use them. git checkout &ldquo;checks out&rdquo;
 that branch so we are inside of it. Note that any commits done on that branch
@@ -90,8 +90,8 @@ will NOT be on the original branch.
 </section>
 </section>
 <section>
-<section id="slide-orgac97220">
-<h3 id="orgac97220">Merging</h3>
+<section id="slide-org34a4e38">
+<h3 id="org34a4e38">Merging</h3>
 <p>
 So when we have a second branch and we want to merge it with our current branch
 we can just git merge.
@@ -107,8 +107,8 @@ we can just git merge.
 </section>
 </section>
 <section>
-<section id="slide-org1d657f1">
-<h3 id="org1d657f1">Remote Branch</h3>
+<section id="slide-org6f1a071">
+<h3 id="org6f1a071">Remote Branch</h3>
 <p>
 Now that we understand branches we can learn that the remote (ie github) is
 actually just another branch. It didnt show in git branch before because it
@@ -124,8 +124,8 @@ hides nonlocal branches by default. To show it you can
 </section>
 </section>
 <section>
-<section id="slide-org7c75d46">
-<h3 id="org7c75d46">git pull</h3>
+<section id="slide-org5c0a4e1">
+<h3 id="org5c0a4e1">git pull</h3>
 <p>
 Now that we know remotes (ie github) are just branches we can find out that git
 pull just performs a git merge on the remote branch.
@@ -134,8 +134,26 @@ pull just performs a git merge on the remote branch.
 </section>
 </section>
 <section>
-<section id="slide-org0e1d1bd">
-<h3 id="org0e1d1bd">Resolving merge conflicts 1</h3>
+<section id="slide-org6e30ba7">
+<h3 id="org6e30ba7">git fetch</h3>
+<p>
+Actually this is only half right. git pull is just a quick way to run git fetch
+the git merge. This means you should never really use git pull unless you know
+you have no changes on disk. Instead you should git fetch then git merge
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-sh"><span style="color: #ECCC87;">git</span> fetch <span style="color: #747474;"># </span><span style="color: #747474;">fetches from origin</span>
+<span style="color: #ECCC87;">git</span> merge origin/master <span style="color: #747474;"># </span><span style="color: #747474;">merges the remote named origins master branch</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org91afef9">
+<h3 id="org91afef9">Resolving merge conflicts 1</h3>
 <p>
 So git merge will try to be smart and resolve all conflicts automatically but
 sadly it cannot if both commits change the same exact line. So git will leave
@@ -155,8 +173,8 @@ ask your question<span style="color: #80A0C2;"> in</span> IRC.
 </section>
 </section>
 <section>
-<section id="slide-orgcc4ea3d">
-<h3 id="orgcc4ea3d">Resolving merge conflicts 2</h3>
+<section id="slide-orga942382">
+<h3 id="orga942382">Resolving merge conflicts 2</h3>
 <p>
 If you notice the top part is one commit and the bottom part is the other
 commit. You can just delete one of them then git add/git commit.
@@ -165,8 +183,8 @@ commit. You can just delete one of them then git add/git commit.
 </section>
 </section>
 <section>
-<section id="slide-org93639da">
-<h2 id="org93639da">Remote features</h2>
+<section id="slide-orgf459d26">
+<h2 id="orgf459d26">Remote features</h2>
 <p>
 There is no set remote features however they normally have the same concept.
 </p>
@@ -174,8 +192,20 @@ There is no set remote features however they normally have the same concept.
 </section>
 </section>
 <section>
-<section id="slide-org7bc4a4c">
-<h4 id="org7bc4a4c">Issues</h4>
+<section id="slide-org7ac388f">
+<h3 id="org7ac388f">Markdown</h3>
+<p>
+Github will display files called readme.md or readme.txt on the bottom of your
+repository. Markdown is a markup language which looks like a plain text file
+with a couple little additions. Github has a specific flavor because there is no
+real standard way to parse it. <a href="https://guides.github.com/features/mastering-markdown/">https://guides.github.com/features/mastering-markdown/</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org526ee53">
+<h3 id="org526ee53">Issues</h3>
 <p>
 You can open a issue with a github repository. These issues can have multiple
 people talking about them and can have labels.
@@ -184,8 +214,8 @@ people talking about them and can have labels.
 </section>
 </section>
 <section>
-<section id="slide-org23a6689">
-<h4 id="org23a6689">Forking</h4>
+<section id="slide-orga2bc535">
+<h3 id="orga2bc535">Forking</h3>
 <p>
 Github and other remotes allow you to fork a repository with a click of a
 button. This is very important feature for Pull Requests which is on the next
@@ -195,8 +225,8 @@ slide.
 </section>
 </section>
 <section>
-<section id="slide-orgb2e444b">
-<h4 id="orgb2e444b">Pull Requests</h4>
+<section id="slide-org8c23543">
+<h3 id="org8c23543">Pull Requests</h3>
 <p>
 A pull request is a commit(or multiple) you want someone to add to their
 repository. In order to submit a PR (pull request) you have to fork their repo
@@ -209,8 +239,8 @@ things before accepting.
 </section>
 </section>
 <section>
-<section id="slide-orgf5d55e6">
-<h4 id="orgf5d55e6">Multiple Remotes</h4>
+<section id="slide-org5b3f64d">
+<h3 id="org5b3f64d">Multiple Remotes</h3>
 <p>
 By convention the origin remote is the repository that was well the original.
 </p>
@@ -224,8 +254,8 @@ to stay up to date with the origin.
 </section>
 </section>
 <section>
-<section id="slide-org12c80aa">
-<h4 id="org12c80aa">Setting up a second remote</h4>
+<section id="slide-org06c0cc3">
+<h3 id="org06c0cc3">Setting up a second remote</h3>
 <p>
 To setup a second remote its the same as setting up the first one but with
 different names. The only difference is when you push/pull you specify the name
@@ -242,8 +272,8 @@ of it. You can set this up to push to a default remote too.
 </section>
 </section>
 <section>
-<section id="slide-org9f40839">
-<h2 id="org9f40839">Stashing</h2>
+<section id="slide-org5f3934e">
+<h2 id="org5f3934e">Stashing</h2>
 <p>
 Git has this thing called stashing which is extremely useful. When you are
 working on something but don&rsquo;t want to officially commit it you can stash the
@@ -253,8 +283,8 @@ change with <code>git stash</code>.
 </section>
 </section>
 <section>
-<section id="slide-org4aefcbe">
-<h4 id="org4aefcbe">git stash commands</h4>
+<section id="slide-orge8e7599">
+<h3 id="orge8e7599">git stash commands</h3>
 <p>
 There are a bunch of subcommands to interact with stashes
 </p>
@@ -273,8 +303,8 @@ There are a bunch of subcommands to interact with stashes
 </section>
 </section>
 <section>
-<section id="slide-org1d3312a">
-<h2 id="org1d3312a">Hashes</h2>
+<section id="slide-orgfef881d">
+<h2 id="orgfef881d">Hashes</h2>
 <p>
 So git has a couple other nice commands to see and one premise which makes these
 command&rsquo;s usable.
@@ -283,8 +313,8 @@ command&rsquo;s usable.
 </section>
 </section>
 <section>
-<section id="slide-org3e1a5b8">
-<h4 id="org3e1a5b8">Logging</h4>
+<section id="slide-orgd4a472e">
+<h3 id="orgd4a472e">Logging</h3>
 <p>
 We can actually list changes with the repository git the command git log. Note
 that it opens the unix program less so we can press q to quit.
@@ -300,8 +330,8 @@ that it opens the unix program less so we can press q to quit.
 </section>
 </section>
 <section>
-<section id="slide-orgbed15a8">
-<h4 id="orgbed15a8">Blaming</h4>
+<section id="slide-org5764ade">
+<h3 id="org5764ade">Blaming</h3>
 <p>
 Another way to see what file changed is with git blame. IDE&rsquo;s and editors
 normally have this intergrated however you can run git blame on a file and see
@@ -317,8 +347,8 @@ who changed it and at which commit.
 </section>
 </section>
 <section>
-<section id="slide-orgf60d3bd">
-<h4 id="orgf60d3bd">Commit hashes</h4>
+<section id="slide-orgb8c762d">
+<h3 id="orgb8c762d">Commit hashes</h3>
 <p>
 So every commit has a unique identifier called a hash as shown by git log and
 git blame. Remember we learned about git checkout to goto another branch? Well
@@ -335,8 +365,8 @@ git checkout also allows you to checkout specific commit hashes.
 </section>
 </section>
 <section>
-<section id="slide-orgff0b8e7">
-<h4 id="orgff0b8e7">git diff</h4>
+<section id="slide-org403e4bc">
+<h3 id="org403e4bc">git diff</h3>
 <p>
 Another thing you can use commit hashes for is git diff. This command shows a
 unix style diff or difference between two files or in this case two git
@@ -354,8 +384,8 @@ branches/commits. Again you can run it on commit hashes or branches
 </section>
 </section>
 <section>
-<section id="slide-org748340e">
-<h2 id="org748340e">Gitignore</h2>
+<section id="slide-org69b26cf">
+<h2 id="org69b26cf">Gitignore</h2>
 <p>
 You can force git to ignore files with the .gitignore file. This is very useful
 for misc stuff like binaries and editor/ide information. Most people commit
@@ -366,18 +396,18 @@ simply regex of the files to be ignored followed by a newline.
 </section>
 </section>
 <section>
-<section id="slide-orgaada2ce">
-<h2 id="orgaada2ce">Next thing to learn</h2>
+<section id="slide-orgf3c8262">
+<h2 id="orgf3c8262">Next thing to learn</h2>
 <p>
 After this will be destructive git commands which change your history not just
-add to it. Also cherry picking and bisecting.
+add to it. Also cherry picking, and bisecting.
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-org1c218e4">
-<h2 id="org1c218e4">Closing</h2>
+<section id="slide-orgfc1bb2b">
+<h2 id="orgfc1bb2b">Closing</h2>
 <p>
 The slides will be up on github <a href="https://github.com/Renzix/Lectures.git">https://github.com/Renzix/Lectures.git</a>
 </p>

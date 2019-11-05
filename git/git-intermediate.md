@@ -60,6 +60,16 @@ Now that we know remotes (ie github) are just branches we can find out that git
 pull just performs a git merge on the remote branch.
 
 
+## git fetch
+
+Actually this is only half right. git pull is just a quick way to run git fetch
+the git merge. This means you should never really use git pull unless you know
+you have no changes on disk. Instead you should git fetch then git merge
+
+    git fetch # fetches from origin
+    git merge origin/master # merges the remote named origins master branch
+
+
 ## Resolving merge conflicts 1
 
 So git merge will try to be smart and resolve all conflicts automatically but
@@ -84,20 +94,28 @@ commit. You can just delete one of them then git add/git commit.
 There is no set remote features however they normally have the same concept.
 
 
-### Issues
+## Markdown
+
+Github will display files called readme.md or readme.txt on the bottom of your
+repository. Markdown is a markup language which looks like a plain text file
+with a couple little additions. Github has a specific flavor because there is no
+real standard way to parse it. <https://guides.github.com/features/mastering-markdown/>
+
+
+## Issues
 
 You can open a issue with a github repository. These issues can have multiple
 people talking about them and can have labels.
 
 
-### Forking
+## Forking
 
 Github and other remotes allow you to fork a repository with a click of a
 button. This is very important feature for Pull Requests which is on the next
 slide.
 
 
-### Pull Requests
+## Pull Requests
 
 A pull request is a commit(or multiple) you want someone to add to their
 repository. In order to submit a PR (pull request) you have to fork their repo
@@ -107,7 +125,7 @@ it will show the difference between your code and theirs and they may ask for
 things before accepting.
 
 
-### Multiple Remotes
+## Multiple Remotes
 
 By convention the origin remote is the repository that was well the original.
 
@@ -116,7 +134,7 @@ second remote which you push before the pull request. This makes it alot easier
 to stay up to date with the origin.
 
 
-### Setting up a second remote
+## Setting up a second remote
 
 To setup a second remote its the same as setting up the first one but with
 different names. The only difference is when you push/pull you specify the name
@@ -133,7 +151,7 @@ working on something but don&rsquo;t want to officially commit it you can stash 
 change with `git stash`.
 
 
-### git stash commands
+## git stash commands
 
 There are a bunch of subcommands to interact with stashes
 
@@ -151,7 +169,7 @@ So git has a couple other nice commands to see and one premise which makes these
 command&rsquo;s usable.
 
 
-### Logging
+## Logging
 
 We can actually list changes with the repository git the command git log. Note
 that it opens the unix program less so we can press q to quit.
@@ -160,7 +178,7 @@ that it opens the unix program less so we can press q to quit.
     git log --oneline # single line with commit hash and message
 
 
-### Blaming
+## Blaming
 
 Another way to see what file changed is with git blame. IDE&rsquo;s and editors
 normally have this intergrated however you can run git blame on a file and see
@@ -169,7 +187,7 @@ who changed it and at which commit.
     git blame readme.md
 
 
-### Commit hashes
+## Commit hashes
 
 So every commit has a unique identifier called a hash as shown by git log and
 git blame. Remember we learned about git checkout to goto another branch? Well
@@ -179,7 +197,7 @@ git checkout also allows you to checkout specific commit hashes.
     git checkout master # goes back to latest commit on branch master
 
 
-### git diff
+## git diff
 
 Another thing you can use commit hashes for is git diff. This command shows a
 unix style diff or difference between two files or in this case two git
@@ -201,7 +219,7 @@ simply regex of the files to be ignored followed by a newline.
 # Next thing to learn
 
 After this will be destructive git commands which change your history not just
-add to it. Also cherry picking and bisecting.
+add to it. Also cherry picking, and bisecting.
 
 
 # Closing

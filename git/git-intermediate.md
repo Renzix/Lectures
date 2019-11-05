@@ -145,7 +145,7 @@ There are a bunch of subcommands to interact with stashes
     git stash clear # clears all known stashes
 
 
-# Misc
+# Hashes
 
 So git has a couple other nice commands to see and one premise which makes these
 command&rsquo;s usable.
@@ -188,6 +188,20 @@ branches/commits. Again you can run it on commit hashes or branches
     git diff master myFeature # difference between 2 branches
     git diff 8468208 master # difference between master and a specific commit
     git diff 8468208 b2430a4 # difference between 2 git commits
+
+
+# Gitignore
+
+You can force git to ignore files with the .gitignore file. This is very useful
+for misc stuff like binaries and editor/ide information. Most people commit
+their .gitignore so that others don&rsquo;t need to make their own. The file format is
+simply regex of the files to be ignored followed by a newline.
+
+
+# Next thing to learn
+
+After this will be destructive git commands which change your history not just
+add to it. Also cherry picking and bisecting.
 
 
 # Closing

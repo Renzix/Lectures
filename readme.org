@@ -2,4 +2,7 @@
 #+DATE:    October 31, 2019
 
 My rants about things or teaching stuff. Remember you can access html files
-through github pages ie https://renzix.github.io/Lectures/git/git.html
+through github pages ie https://renzix.github.io/Lectures/git/git-beginner.html
+
+* Git
+- Beginner and Intermediate guides for how to use git.

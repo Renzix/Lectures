@@ -7,13 +7,13 @@ and how they function. Everything that was done before works perfectly if you
 are a single user however git projects are meant for multiple users.
 
 
-## Branches
+# Branches
 
 Git has this idea called branching. What this basically means is that you can
 have different versions of your project can switch between them easily.
 
 
-### git branch
+## git branch
 
 The way to create, delete or list branches is through git branch. Note that this
 creates a branch at the exact commit you created it on.
@@ -23,7 +23,7 @@ creates a branch at the exact commit you created it on.
     git branch -d NewFeature # Deletes the NewFeature branch
 
 
-### git checkout
+## git checkout
 
 Now that we can create branches how about we use them. git checkout &ldquo;checks out&rdquo;
 that branch so we are inside of it. Note that any commits done on that branch
@@ -36,7 +36,7 @@ will NOT be on the original branch.
     git checkout master # by convention the original branch is called master
 
 
-### Merging
+## Merging
 
 So when we have a second branch and we want to merge it with our current branch
 we can just git merge.
@@ -45,7 +45,7 @@ we can just git merge.
     git merge NewFeature # now the master branch has a readme which says NewFeature
 
 
-### Remote Branch
+## Remote Branch
 
 Now that we understand branches we can learn that the remote (ie github) is
 actually just another branch. It didnt show in git branch before because it
@@ -54,13 +54,13 @@ hides nonlocal branches by default. To show it you can
     git branch -a
 
 
-### git pull
+## git pull
 
 Now that we know remotes (ie github) are just branches we can find out that git
 pull just performs a git merge on the remote branch.
 
 
-### Resolving merge conflicts 1
+## Resolving merge conflicts 1
 
 So git merge will try to be smart and resolve all conflicts automatically but
 sadly it cannot if both commits change the same exact line. So git will leave
@@ -73,13 +73,13 @@ something like this.
     >>>>>>> branch-a
 
 
-### Resolving merge conflicts 2
+## Resolving merge conflicts 2
 
 If you notice the top part is one commit and the bottom part is the other
 commit. You can just delete one of them then git add/git commit.
 
 
-## Remote features
+# Remote features
 
 There is no set remote features however they normally have the same concept.
 
@@ -126,7 +126,7 @@ of it. You can set this up to push to a default remote too.
     git push MyRepo
 
 
-## Stashing
+# Stashing
 
 Git has this thing called stashing which is extremely useful. When you are
 working on something but don&rsquo;t want to officially commit it you can stash the
@@ -145,7 +145,7 @@ There are a bunch of subcommands to interact with stashes
     git stash clear # clears all known stashes
 
 
-## Misc
+# Misc
 
 So git has a couple other nice commands to see and one premise which makes these
 command&rsquo;s usable.

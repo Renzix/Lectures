@@ -1,0 +1,120 @@
+#+TITLE: shell
+
+* Introduction
+
+- Every major operating system has a shell
+- Shells are sometimes called the glue that holds a operating system together
+- Shells are specifically made to work with external programs and commands
+- Most operating systems (with the exception of windows) have a POSIX compatible
+  shell
+
+So one thing we need to talk about is POSIX compliance. Being a POSIX operating
+system means that it follows a bunch of specific standards that help people be
+able to learn shells and have a consistant environment. One thing POSIX says is
+that the shell must contain specific commands. Most shells contain more then the
+POSIX standard.
+
+** Shells
+Here is a list of possible shells and descriptions. Bash, zsh, dash, fish, xonsh
+and powershell work on Unix and Fish, xonsh, cmd, and powershell work on Windows.
+
+*** Bash
+
+One of the most commonly used shells in linux and comes default in macOS
+precatalina. Bash is generally alot slower compared to the other shells but has
+a bunch of nice "bashisms" where it has extra commands to make it easier to use.
+Unfortunately Apple dislikes the GPLv3 (license for bash) so their bash version
+is years behind.
+
+*** Zsh
+
+Zsh has most of what bash has but is made to be a much better interactive shell.
+This means when you open a terminal it will have little tricks that make things
+easier or be more configurable. Zsh even has a famous plugin system called
+oh-my-zsh (everything can be done in your .zshrc so don't use oh-my-zsh). This
+shell is actually default on the new macOS and has a newer version compared to
+bash because the license is MIT.
+
+*** Dash
+
+Dash stands for the Debian Agnostic Shell. This shell is meant to be mostly
+POSIX with a few sane additions. Because its pure POSIX and doesn't do too much
+it is much faster then the other shells. This was made for POSIX scripts and
+because of that it offers very few interactive features.
+
+*** Fish
+
+Fish is a shell made to be friendly and interactive. One of the best/worse
+things is that it is NOT posix complacent. It has a whole bunch of nice
+interactive features and even works on Microsoft Windows. One example is that
+you can (not required) configure it through a web interface instead of a text
+file.
+
+*** Xonsh
+
+Xonsh is a weird one. First of all it is not a POSIX compliment shell and
+doesn't try to be. Pronounced conch with a x this shell is actually a superset
+of python. This means any python code will run under xonsh. It also has shell
+like syntax which it switches into whenever you run a shell like command. Its
+interactivity can also be configured like fish however because of this python
+overhead it is very slow. It is also available in microsoft windows and any unix
+environment.
+
+*** Cmd
+
+Microsofts original shell. Cmd has a very simple language and really isn't as
+powerful as powershell or any POSIX shell. It can do simple things like
+redirection and has some basic shell concepts. One quirk is that line comments
+are written like REM and nobody uses this. Instead they use :: which is
+actually a GOTO label (yes cmd has goto's). This shell is Windows only.
+
+*** Powershell
+
+Microsoft's newer shell called powershell is alot more interesting. It is not
+POSIX and has different versions. Microsoft has been slowely killing the
+original powershell in favor of powershell core. It was originally a windows
+only shell but powershell core is cross platform and works on Windows/Unix.
+
+** How shells work
+*** Interactivity
+
+Shells are actual programming languages however they are also made to be run
+as interactive. Some have more interactivity then others.
+
+*** External programs
+
+All shells here have a PATH variable which allows you to seamlessly execute
+external programs. These external programs are normally slower then keeping it
+all in the shells language so don't abuse this.
+
+*** Readline
+
+So every shell here has builtin keybindings for how to use it called
+readline(you can with dash but you have to manually compile it). 
+
+*** Error Codes
+
+When you execute a command, the command returns a code. This code is a single
+integer and depends on the command. By convention a 0 code means the command was
+successful and a non 0 code means the command failed. This is different from C
+where 0 is false and non 0 is true. This is also why you return 0 in a C program
+(or EXIT_SUCCESS). Shell abuses this and uses this for a large amount of things
+ie if statements. Each normally has a list of error codes (non 0) which tell you
+why it failed.
+
+*** Redirections
+
+In all of these shells there is 3 things you have to look out for. Stdin,
+Stdout, and Stderr. stdin is input, stdout is normal output and stderr is normal
+error.
+
+*** Dynamic Scoping
+
+Shells are normally dynamically scoped. This is a weird concept for anyone who
+hasn't seen a dynamically scoped language before.
+
+* POSIX Shell
+
+So now we know a little bit about shells we should actually learn POSIX shells.
+I am going to run this under dash and use ShellCheck to make sure its POSIX.
+ShellCheck is a nice utility which tells you if your writting good shell scripts.

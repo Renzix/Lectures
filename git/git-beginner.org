@@ -32,32 +32,36 @@ git --version
 
 * Installation
 ** Windows
+
 go to https://github.com/git-for-windows/git/releases/tag/v2.23.0.windows.1 and
 scroll down to where it says Assets. Click on the dropdown and download the 64
 bit exe which says Git-2.23.0-64-bit.exe.
-@TODO(Renzix): go through install
+
 ** macOS
+
 for macOS you have 2 options. You can either install xcode and it will
 automatically install it or install it directly from git-scm.
+
 *** Xcode
+
 Install xcode via the app store. To test it run
+
 #+BEGIN_SRC sh :exports code
 git --version
 #+END_SRC
 
-*** git-scm
-go to https://git-scm.com/download/mac and install it.
-
 ** Linux
+
 This depends on your distro. Nearly all distros have git in their repository so
 you can just use your package manager.
 
 - Debian based =sudo apt install git=
 - Redhat based =sudo dnf install git=
 - Arch Based =sudo pacman -S git=
+  
 * Creating the Repo
-
 ** Git Init
+
 To get started run the command
 
 #+BEGIN_SRC sh
@@ -76,9 +80,8 @@ cd myProject
 touch readme.md
 #+END_SRC
 
-#+RESULTS:
-
 ** Git Add
+
 After you make this file you can "add" it to your repository by running the
 command =git add=. If you had multiple files then you would run =git add
 filename= on each file.
@@ -114,22 +117,22 @@ Congrats you have a repo with =readme.md=. You can git add and git commit every
 time you change any files to save the changes in git.
 
 ** Recap
+
 - To make a repo =git init reponame=
 - To add a file (stage) =git add filename=
 - To commit changes =git commit=
 
 * Using a remote
-
-** Creating your account
-
-Now you can setup github as a remote repository for your code. Keep in mind
-there are alternatives the big two being bitbucket and gitlab.
-
 ** Create a repo
 
 Once you create a account you have to do 2 things. First you create a empty
 repository on the website. =DO NOT ADD A LICNESE OR README YET= as it will mess
 up the history of the remote.
+
+** Creating your account
+
+Now you can setup github as a remote repository for your code. Keep in mind
+there are alternatives the big two being bitbucket and gitlab.
 
 ** Adding the remote
 
@@ -162,10 +165,12 @@ after you run this command you can just run =git push= and it will remember the
 other options.
 
 ** Recap
+
 - To setup
  - =git remote add origin https://github.com/USERNAME/REPONAME.git==
  - =git push -u origin master=
 - Afterwords you can just =git push=
+  
 * Misc
 ** Pulling changes
 
@@ -174,6 +179,7 @@ To pull down changes from a repo you can run the comand
 #+BEGIN_SRC sh
 git pull
 #+END_SRC
+
 ** Cloning repos
 
 To get a local copy of a repository online you can run. Note that the remote
@@ -222,12 +228,14 @@ git commit -m "My first commit!!!"
 #+END_SRC
 
 ** Recap
+
 - To pull down changes from the remote =git pull=
 - To get someone elses repo =git clone=
 - You can also use ssh keys instead of a login
 - You can tell git to stop tracking a file with =git rm filename=
 - git status lets you see which files are being tracked and how
 - Every git options has optional flags associated to it
+
 * Learning
 
 To learn more about git there is a ton of information about it online for free.

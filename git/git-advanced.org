@@ -71,7 +71,7 @@ git tag # lists all tags
 git tag -d v1.1 # deletes the tag v1.1
 #+END_SRC
 
-* Linear History
+* Messing with History
 
 Alot of projects force a linear history. When you merge a branch, the history
 from that merge is shown as a fork. Especially if your code has commit in
